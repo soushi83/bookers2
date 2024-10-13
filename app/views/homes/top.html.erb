@@ -1,2 +1,13 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="top-page-content">
+
+  <h1>Welcome to Bookers!!</h1>
+  <p class="bold">In Bookers,</p>
+  <p>you can share and exchange your opinions , inpressions , and emotions<br>
+  about various books!</p>
+
+  <div class="auth-buttons">
+    <%= link_to 'Log in', new_user_session_path, class: 'btn btn-primary' %>
+    <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-secondary' %>
+  </div>
+
+</div>

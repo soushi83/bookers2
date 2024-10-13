@@ -1,3 +1,18 @@
-// Place all the styles related to the books controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.profile-image {
+  width: 50px; // 画像の幅
+  height: auto; // 高さを自動調整
+  border-radius: 50%; // 丸くする
+  margin-right: 10px; // 画像とテキストの間のマージン
+}
+
+.left-sidebar {
+  float: left; // 左側に固定
+  width: 25%; // 幅を25%に設定
+  padding: 20px; // 内側のパディング
+}
+
+.books-list {
+  float: right; // 右側に固定
+  width: 70%; // 幅を70%に設定
+  padding: 20px; // 内側のパディング
+}
