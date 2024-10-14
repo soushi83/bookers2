@@ -1,2 +1,28 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <!-- 左側: User infoとNew Book -->
+    <div class="col-md-4">
+      <%= render 'sidebar' %>
+    </div>
+
+    <!-- 右側: Book Detail -->
+    <div class="col-md-8">
+      <h2>Book Detail</h2>
+      <div class="book-detail">
+        <div class="user-info">
+          <%= image_tag(@book.user.image.attached? ? url_for(@book.user.image) : 'no_image.jpg', alt: 'User Image', class: 'profile-image') %>
+          <p>Posted by: <%= @book.user.name %></p>
+        </div>
+        <p>Title: <%= @book.title %></p>
+        <p>Body: <%= @book.body %></p>
+
+        <!-- 編集と削除ボタン -->
+        <% if @book.user == current_user %>
+          <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %>
+          <%= link_to 'Delete', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn btn-danger' %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

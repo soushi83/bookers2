@@ -1,1 +1,23 @@
 @use '~bootstrap/scss/bootstrap';
+
+.edit-profile-link {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f8f9fa;
+}
+
+.user-info {
+  margin-bottom: 10px;
+}
+
+.top-page-content {
+  border: 2px solid grey;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.footer-p {
+  text-align: center;
+  padding: 10px;
+}
