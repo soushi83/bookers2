@@ -1,2 +1,30 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h2>User info</h2>
+
+<div class="user-edit-form">
+  <%= form_with model: @user, local: true, multipart: true do |f| %>
+
+    <!-- Name -->
+    <div class="field">
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <!-- Image -->
+    <div class="field">
+      <%= f.label :image, "Image" %>
+      <%= f.file_field :image, accept: 'image/*', class: 'form-control' %>
+    </div>
+
+    <!-- Introduction -->
+    <div class="field">
+      <%= f.label :introduction, "Introduction" %>
+      <%= f.text_area :introduction, class: 'form-control' %>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="actions">
+      <%= f.submit "Update User", class: 'btn btn-primary' %>
+    </div>
+
+  <% end %>
+</div>
