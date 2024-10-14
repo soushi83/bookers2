@@ -10,7 +10,7 @@
       <h2>Book Detail</h2>
       <div class="book-detail">
         <div class="user-info">
-          <%= image_tag(@book.user.image.attached? ? url_for(@book.user.image) : 'no_image.jpg', alt: 'User Image', class: 'profile-image') %>
+          <%= image_tag current_user.get_profile_image(100,100) %>
           <p>Posted by: <%= @book.user.name %></p>
         </div>
         <p>Title: <%= @book.title %></p>
