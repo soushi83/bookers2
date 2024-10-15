@@ -2,7 +2,16 @@
   <div class="row">
     <!-- 左側: User infoとNew Book -->
     <div class="col-md-4">
-      <%= render 'sidebar' %>
+      <div class="user-info">
+        <h2>User Info</h2>
+        <%= image_tag @book.user.get_profile_image(100,100) %>
+        <p>Name: <%= @book.user.name %></p>
+        <p>Introduction: <%= @book.user.introduction %></p>
+        <% if current_user == @book.user %>
+          <%= link_to '<i class="fa-solid fa-user-gear"></i>'.html_safe, edit_user_registration_path, class: 'edit-profile-link' %>
+        <% end %>
+      </div>
+      <%= render 'newbook' %>
     </div>
 
     <!-- 右側: Book Detail -->
@@ -10,7 +19,7 @@
       <h2>Book Detail</h2>
       <div class="book-detail">
         <div class="user-info">
-          <%= image_tag current_user.get_profile_image(100,100) %>
+          <%= image_tag @book.user.get_profile_image(100,100) %>
           <p>Posted by: <%= @book.user.name %></p>
         </div>
         <p>Title: <%= @book.title %></p>

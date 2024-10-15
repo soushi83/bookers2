@@ -15,6 +15,13 @@
     <!--ヘッダーの部分プレート呼び出し-->
     <%= render 'layouts/header' %>
 
+    <!--フラッシュメッセージ-->
+    <% flash.each do |key, message| %>
+      <div class="alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
+        <%= message %>
+      </div>
+    <% end %>
+
     <%= yield %>
 
     <!--フッターの部分プレート呼び出し-->

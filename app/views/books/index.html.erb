@@ -1,8 +1,21 @@
 <div class="container">
+
+  <% if @new_book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <ul>
+        <% @new_book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="row">
     <!--左側：User infoとNew Book-->
     <div class="col-md-4">
-      <%= render 'sidebar' %>
+      <%= render 'sidebar_current_user' %>
+      <%= render 'newbook' %>
     </div>
 
     <!--右側：Books-->
@@ -21,9 +34,9 @@
           <% @books.each do |book| %>
             <tr>
               <td>
-                <%= image_tag current_user.get_profile_image(100,100) %>
+                <%= image_tag book.user.get_profile_image(100,100) %>
               </td>
-              <td><%= link_to book.title, book_path(book) %></td>
+              <td><%= link_to book.title, book_path(book.id) %></td>
               <td><%= book.body %></td>
               <td><%= link_to 'View User', user_path(book.user) %></td>
             </tr>
@@ -31,6 +44,5 @@
         </tbody>
       </table>
     </div>
-
   </div>
 </div>

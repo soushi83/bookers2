@@ -33,7 +33,7 @@ class BooksController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @book.destroy
     redirect_to books_path, notice: 'Book was successfully deleted.'
