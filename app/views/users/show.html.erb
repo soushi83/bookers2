@@ -8,10 +8,7 @@
         <%#= image_tag(current_user.profile_image.attached? ? current_user.profile_image : 'no_image.jpg', alt: 'User Image') %>
         <p>Name: <%= @user.name %></p>
         <p>Introduction: <%= @user.introduction %></p>
-
-        <% if current_user == @user %>
-          <%= link_to '<i class="fa-solid fa-user-gear"></i>'.html_safe, edit_user_registration_path, class: 'edit-profile-link' %>
-        <% end %>
+        <%= link_to '<i class="fa-solid fa-user-gear"></i>'.html_safe, edit_user_path(@user), class: 'edit-profile-link' %>
       </div>
 
       <%= render 'books/newbook' %>

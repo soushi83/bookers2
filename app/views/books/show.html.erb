@@ -7,16 +7,14 @@
         <%= image_tag @book.user.get_profile_image(100,100) %>
         <p>Name: <%= @book.user.name %></p>
         <p>Introduction: <%= @book.user.introduction %></p>
-        <% if current_user == @book.user %>
-          <%= link_to '<i class="fa-solid fa-user-gear"></i>'.html_safe, edit_user_registration_path, class: 'edit-profile-link' %>
-        <% end %>
+        <%= link_to '<i class="fa-solid fa-user-gear"></i>'.html_safe, edit_user_path(@book.user), class: 'edit-profile-link' %>
       </div>
       <%= render 'newbook' %>
     </div>
 
     <!-- 右側: Book Detail -->
     <div class="col-md-8">
-      <h2>Book Detail</h2>
+      <h2>Book detail</h2>
       <div class="book-detail">
         <div class="user-info">
           <%= image_tag @book.user.get_profile_image(100,100) %>
