@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <!-- 左側： User info と New Book -->
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="user-info">
         <h2>User Info</h2>
         <%= image_tag @user.get_profile_image(100,100) %>
@@ -15,7 +15,7 @@
     </div>
 
     <!-- 右側： Books リスト -->
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
 
       <table  class="table table-striped">

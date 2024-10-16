@@ -1,5 +1,7 @@
 <div class="container">
 
+  <div class="row">
+
   <% if @new_book.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@new_book.errors.count, "error") %> prohibited this book from being saved:</h2>
@@ -11,15 +13,14 @@
     </div>
   <% end %>
 
-  <div class="row">
     <!--左側：User infoとNew Book-->
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= render 'sidebar_current_user' %>
       <%= render 'newbook' %>
     </div>
 
     <!--右側：Books-->
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-striped">
         <thead>
