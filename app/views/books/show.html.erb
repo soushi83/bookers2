@@ -4,8 +4,8 @@
     <div class="col-md-4">
       <div class="user-info">
         <h2>User Info</h2>
-        <%= image_tag @book.user.get_profile_image(100,100) %>
-        <p>Name: <%= @book.user.name %></p>
+        <%= image_tag @book.user.get_profile_image(100,100) %><br>
+        <p>Name <%= @book.user.name %></p>
         <p>Introduction: <%= @book.user.introduction %></p>
         <%= link_to '<i class="fa-solid fa-user-gear"></i>'.html_safe, edit_user_path(@book.user), class: 'edit-profile-link' %>
       </div>
@@ -16,17 +16,18 @@
     <div class="col-md-8">
       <h2>Book detail</h2>
       <div class="book-detail">
-        <div class="user-info">
+        <%= link_to user_path(@book.user) do %>
           <%= image_tag @book.user.get_profile_image(100,100) %>
-          <p>Posted by: <%= @book.user.name %></p>
-        </div>
+        <% end %>
+        <br>
+        <p>Posted by:<%= link_to @book.user.name, user_path(@book.user), class: 'user-name-link' %></p>
         <p>Title: <%= @book.title %></p>
         <p>Body: <%= @book.body %></p>
 
         <!-- 編集と削除ボタン -->
         <% if @book.user == current_user %>
           <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %>
-          <%= link_to 'Delete', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn btn-danger' %>
+          <%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn btn-danger' %>
         <% end %>
       </div>
     </div>
